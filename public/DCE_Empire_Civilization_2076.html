@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DCE EMPIRE CIVILISATION 2076</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #1a1a1a;
+            background-color: #fcfcfc;
+        }
+
+        h1 {
+            color: #0f2027;
+            border-bottom: 4px solid #203a43;
+            padding-bottom: 15px;
+            margin-top: 60px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #2c5364;
+            margin-top: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #c0392b;
+            margin-top: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1.1em;
+        }
+
+        h4 {
+            color: #2980b9;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        ul {
+            margin-left: 20px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 25px 0;
+            page-break-inside: avoid;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #e1e1e1;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            border-left: 5px solid #e74c3c;
+            margin: 1.5em 10px;
+            padding: 10px 20px;
+            background-color: #fff8f8;
+            color: #555;
+        }
+
+        .pillar-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 5px;
+            color: white;
+        }
+
+        .pillar-infra {
+            background-color: #7f8c8d;
+        }
+
+        .pillar-tech {
+            background-color: #8e44ad;
+        }
+
+        .pillar-culture {
+            background-color: #e67e22;
+        }
+
+        .pillar-human {
+            background-color: #27ae60;
+        }
+
+        .pillar-shield {
+            background-color: #34495e;
+        }
+
+        .pillar-expansion {
+            background-color: #2980b9;
+        }
+
+        @media print {
+            body {
+                max-width: 100%;
+                padding: 0;
+                margin: 1.5cm;
+                font-size: 11pt;
+            }
+
+            .page-break {
+                page-break-before: always;
+                height: 0;
+                display: block;
+            }
+
+            h1,
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
+
+            table,
+            blockquote {
+                page-break-inside: avoid;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        .page-break {
+            border-top: 2px dashed #bbb;
+            margin: 60px 0;
+            padding-top: 60px;
+            text-align: center;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .page-break::after {
+            content: "--- SECTION SUIVANTE ---";
+            font-size: 0.8em;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- PAGE DE GARDE -->
+    <div class="section" id="00_Page_de_Garde.md">
+        <div style="text-align: center; margin-top: 100px;">
+            <h1 style="font-size: 3em; border: none; margin-bottom: 0;">EMPIRE CIVILISATION 2076</h1>
+            <h2 style="border: none; margin-top: 10px; color: #7f8c8d;">DOSSIER DE CONSULTATION DES ENTREPRISES (DCE) -
+                NIVEAU SUMMUM</h2>
+            <div style="width: 100px; height: 5px; background: #c0392b; margin: 30px auto;"></div>
+        </div>
+
+        <br><br>
+
+        <blockquote style="font-size: 1.2em; text-align: center;">
+            "Nous ne construisons pas une entreprise. Nous construisons le <br><strong>Système d'Exploitation de la Vie
+                Quotidienne</strong> (LifeOS) de l'Afrique Centrale."
+        </blockquote>
+
+        <br><br>
+
+        <table style="width: 80%; margin: 0 auto;">
+            <tr>
+                <td><strong>Maître d'Ouvrage</strong></td>
+                <td><strong>Gaëtan [Nom]</strong> – Architecte de Civilisation</td>
+            </tr>
+            <tr>
+                <td><strong>Vision</strong></td>
+                <td><strong>Omniprésence "Summum" (2026-2076)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Objet</strong></td>
+                <td>Construction d'une Infrastructure Souveraine (Physique, Numérique, Culturelle, Biologique)</td>
+            </tr>
+            <tr>
+                <td><strong>Date</strong></td>
+                <td>Février 2026</td>
+            </tr>
+        </table>
+
+        <br><br><br>
+
+        <h2 style="text-align: center;">SOMMAIRE STRATÉGIQUE</h2>
+        <ul style="width: 60%; margin: 0 auto; font-size: 1.1em;">
+            <li><strong>PIÈCE 1 :</strong> Règlement de la Consultation (RC) - <em>Les 6 Piliers Civilisationnels</em>
+            </li>
+            <li><strong>PIÈCE 2 :</strong> Vision 2076 "Summum" - <em>Le Modèle de Domination Positive</em></li>
+            <li><strong>PIÈCE 3 :</strong> CCTP Technique - <em>Spécifications des 19 Lots</em></li>
+            <li><strong>PIÈCE 4 :</strong> Cadre Juridique & Financier (CCAP/BPU)</li>
+        </ul>
+
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- VISION 2076 -->
+    <div class="section" id="07_Vision_Civilisation_2076.md">
+        <h1>VISION SUMMUM 2076 : L'EMPIRE COMME CIVILISATION</h1>
+
+        <p>Nous passons du stade de "Société de Sport & Média" à celui d'<strong>État-Plateforme Privé</strong>.
+            L'objectif n'est plus seulement de divertir, mais de devenir l'infrastructure critique sur laquelle repose
+            la vie moderne du citoyen.</p>
+
+        <p>L'Empire 2076 repose sur <strong>6 Dimensions de Suprématie</strong> qui transforment nos clients en citoyens
+            numériques et biologiques.</p>
+
+        <br>
+
+        <h2>1. LA DIMENSION "BIO-DATA" (L'OR NOIR DU FUTUR)</h2>
+        <p><em>Inspiration : Discovery Vitality / Whoop</em></p>
+        <ul>
+            <li><strong>Le Constat :</strong> Le sport génère de la santé, mais cette valeur est perdue.</li>
+            <li><strong>La Stratégie :</strong> Chaque abonné "Empire" reçoit un bracelet connecté (Lot 15). Ses
+                battements de cœur, ses pas, son sommeil sont minés.</li>
+            <li><strong>La Monétisation :</strong> La donnée de santé est revendue (anonymisée) aux assureurs et à
+                l'État. En échange, le citoyen qui court gagne des crédits pour payer sa facture d'électricité (Lot 14).
+            </li>
+            <li><strong>L'Emprise :</strong> Nous devenons le Ministère de la Santé Préventive.</li>
+        </ul>
+
+        <h2>2. LA DIMENSION ÉNERGÉTIQUE (SOUVERAINETÉ)</h2>
+        <p><em>Inspiration : Tesla Energy</em></p>
+        <ul>
+            <li><strong>Le Constat :</strong> Pas de civilisation sans énergie fiable. Le réseau public est instable.
+            </li>
+            <li><strong>La Stratégie :</strong> Chaque "Empire Arena" (Lot 11) devient une micro-centrale solaire.
+                Chaque "Sports Bar" (Lot 13) devient une station de recharge pour motos-taxis électriques.</li>
+            <li><strong>Le Lock-in :</strong> Le chauffeur de moto ne vient pas juste voir le match, il vient
+                <em>charger son outil de travail</em>. Il est captif de notre écosystème.</li>
+        </ul>
+
+        <h2>3. LA DIMENSION "MÉTAVERSE" & GAMIFICATION (RÉALITÉ AUGMENTÉE)</h2>
+        <p><em>Inspiration : WeChat / Black Mirror (Nosedive)</em></p>
+        <ul>
+            <li><strong>Le Constat :</strong> La vie réelle est ennuyeuse. La jeunesse veut du jeu.</li>
+            <li><strong>La Stratégie :</strong> Gamifier la citoyenneté. Ramasser un déchet = +10 XP. Aller au stade =
+                +50 XP. Payer en retard = -20 XP.</li>
+            <li><strong>Le Statut :</strong> Les citoyens de "Rang Or" ont accès aux soirées VIP et aux crédits
+                bancaires Empire (Lot 16). C'est un système de crédit social positif et volontaire.</li>
+        </ul>
+
+        <h2>4. LA DIMENSION ÉDUCATIVE "AS A SERVICE"</h2>
+        <p><em>Inspiration : MasterClass / Google Career Certificates</em></p>
+        <ul>
+            <li><strong>Le Constat :</strong> Le diplôme classique ne vaut plus rien. La compétence vaut tout.</li>
+            <li><strong>La Stratégie :</strong> L'"Empire Institute" (Lot 19) ne délivre pas des diplômes d'État, mais
+                des "Certificats de Compétence" reconnus par les entreprises partenaires.</li>
+            <li><strong>Le Contenu :</strong> Cours de Code, Vidéo, Management, Finance personnelle, Sport, Nutrition.
+                Tout est numérique, tout est dans l'App.</li>
+        </ul>
+
+        <h2>5. L'EXPORTATION DU SOFT POWER (CULTURE IMPÉRIALE)</h2>
+        <p><em>Inspiration : K-Pop / Hollywood</em></p>
+        <ul>
+            <li><strong>Le Constat :</strong> Le Cameroun a du talent mais pas de "Packaging".</li>
+            <li><strong>La Stratégie :</strong> Créer une usine à stars. Nos documentaires (Lot 18) sont formatés pour
+                Netflix dès le script. Notre musique (Lot 17) est mixée pour Spotify Global.</li>
+            <li><strong>L'Objectif :</strong> Que le petit parisien ou new-yorkais porte du "Empire Streetwear" (Lot 5)
+                parce que c'est cool, pas par charité.</li>
+        </ul>
+
+        <br>
+        <blockquote style="background-color: #2c3e50; color: white; border-left: 5px solid #c0392b;">
+            <strong>CONCLUSION :</strong> Nous ne vendons plus un produit. Nous vendons une
+            <strong>appartenance</strong>. L'Empire est la tribu du 21ème siècle.
+        </blockquote>
+
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- REGLEMENT CONSULTATION -->
+    <div class="section" id="01_RC.md">
+        <h1>RÈGLEMENT DE CONSULTATION (RC) - 6 PILIERS</h1>
+
+        <p>Le projet est restructuré en <strong>6 Piliers Civilisationnels</strong> regroupant <strong>19 Lots</strong>
+            interconnectés.</p>
+
+        <br>
+
+        <h2 class="pillar-infra" style="color:white; padding:10px;">PILIER 1 : INFRASTRUCTURE CIVILISATIONNELLE (LE
+            CORPS)</h2>
+        <p><em>Le socle physique et énergétique de l'Empire.</em></p>
+        <ul>
+            <li><strong>Lot 11 : CONSTRUCTION & FONCIER</strong> (Arenas, Complexes sportifs, Terrains)</li>
+            <li><strong>Lot 09 : HOSPITALITÉ & RÉSIDENCE</strong> (Hôtels, Logements athlètes)</li>
+            <li><strong>Lot 14 [NEW] : ÉNERGIE & GRID</strong> (Solaire, Bornes recharge, Stockage batterie)</li>
+        </ul>
+
+        <h2 class="pillar-tech" style="color:white; padding:10px;">PILIER 2 : SOUVERAINETÉ NUMÉRIQUE (LE SYSTÈME
+            NERVEUX)</h2>
+        <p><em>La gestion de la donnée et de la valeur.</em></p>
+        <ul>
+            <li><strong>Lot 01 : TECH & SUPER-APP</strong> (OTT, UX/UI, Algorithmes)</li>
+            <li><strong>Lot 15 [NEW] : BIO-DATA & WEARABLES</strong> (Bracelets connectés, Analyse santé)</li>
+            <li><strong>Lot 16 [NEW] : FINTECH & CRÉDIT</strong> (Paiement, Micro-prêt, Crowdfunding)</li>
+        </ul>
+
+        <h2 class="pillar-culture" style="color:white; padding:10px;">PILIER 3 : HÉGÉMONIE CULTURELLE (L'ÂME)</h2>
+        <p><em>La production de sens et d'émotion.</em></p>
+        <ul>
+            <li><strong>Lot 12 : INGÉNIERIE SPORTIVE</strong> (Ligues privées, Tournois)</li>
+            <li><strong>Lot 02 : STUDIO & MÉDIA</strong> (Production TV, Régies, Directs)</li>
+            <li><strong>Lot 17 [NEW] : EMPIRE RECORDS</strong> (Label Musique, Studio Son, Publishing)</li>
+            <li><strong>Lot 18 [NEW] : GAMING & MÉTAVERSE</strong> (eSport, NFT, App Game, Documentaires)</li>
+        </ul>
+
+        <h2 class="pillar-human" style="color:white; padding:10px;">PILIER 4 : USINE À CAPITAUX HUMAINS (LE CERVEAU)
+        </h2>
+        <p><em>La formation et l'élévation des citoyens.</em></p>
+        <ul>
+            <li><strong>Lot 03 : ACADÉMIE PHYSIQUE</strong> (Formation Sport-Études)</li>
+            <li><strong>Lot 19 [NEW] : EDTECH INSTITUTE</strong> (LMS, E-learning, Certifications)</li>
+        </ul>
+
+        <h2 class="pillar-shield" style="color:white; padding:10px;">PILIER 5 : BOUCLIER OPÉRATIONNEL (LA DÉFENSE)</h2>
+        <p><em>La protection et le mouvement de l'Empire.</em></p>
+        <ul>
+            <li><strong>Lot 07 : SÉCURITÉ ("Empire Guard")</strong> (Surveillance, Gardes, Cybersécurité)</li>
+            <li><strong>Lot 10 : JURIDIQUE & IP</strong> (Contrats, Lobbying, Protection Marques)</li>
+            <li><strong>Lot 04 : LOGISTIQUE & IOT</strong> (Flotte véhicules, Tracking)</li>
+        </ul>
+
+        <h2 class="pillar-expansion" style="color:white; padding:10px;">PILIER 6 : EXPANSION COMMERCIALE (LE MEMBRE)
+        </h2>
+        <p><em>Le déploiement physique et retail.</em></p>
+        <ul>
+            <li><strong>Lot 13 : RÉSEAU FRANCHISE</strong> (Sports Bars, Agences)</li>
+            <li><strong>Lot 05 : TEXTILE & MERCH</strong> (Usine, Streetwear brand)</li>
+            <li><strong>Lot 08 : FOOD & NUTRITION</strong> (Cuisine centrale, Compléments alimentaires)</li>
+            <li><strong>Lot 06 : STREET MARKETING</strong> (Activation terrain)</li>
+        </ul>
+
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- CCTP TECHNIQUE -->
+    <div class="section" id="03_CCTP.md">
+        <h1>CAHIER DES CLAUSES TECHNIQUES (CCTP) - SPÉCIFICATIONS SUMMUM</h1>
+
+        <h2>FOCUS SUR LES NOUVEAUX LOTS CRITIQUES</h2>
+
+        <br>
+
+        <h3>LOT N°14 : ÉNERGIE & GRID (AUTONOMIE)</h3>
+        <ul>
+            <li><strong>Toitures Solaires :</strong> Installation systématique de panneaux photovoltaïques sur 100% de
+                la surface de toiture des Arenas (Lot 11). Objectif : Autonomie totale en journée + revente surplus.
+            </li>
+            <li><strong>Power Storage :</strong> Installation de murs de batteries (Powerwalls industriels) pour assurer
+                l'éclairage des matchs nocturnes sans dépendre du réseau public (Eneo).</li>
+            <li><strong>Station de Charge :</strong> Chaque site doit comporter un "Empire Supercharge Hub" pour 50
+                motos simultanées. Paiement uniquement via App Empire (Lot 1).</li>
+        </ul>
+
+        <br>
+
+        <h3>LOT N°15 : BIO-DATA & WEARABLES (SANTÉ CONNECTÉE)</h3>
+        <ul>
+            <li><strong>Hardware :</strong> Fourniture de 100 000 bracelets connectés (OEM type Xiaomi/Huawei rebrandé
+                "Empire Pulse"). Coût cible < 10$.</li>
+            <li><strong>Capteurs :</strong> Fréquence cardiaque, Pas, Oxygène (SpO2), Sommeil.</li>
+            <li><strong>Intégration App :</strong>
+                <ul>
+                    <li>Dashboard Santé personnel dans la Super-App.</li>
+                    <li><strong>Algorithme "Vitality" :</strong> Calcul d'un score de santé quotidien. SI Score > 80
+                        ALORS Bonus Data Internet offert.</li>
+                </ul>
+            </li>
+            <li><strong>Data Lake :</strong> Stockage sécurisé (HDS) des données pour analyse épidémiologique (Big
+                Data).</li>
+        </ul>
+
+        <br>
+
+        <h3>LOT N°16 : FINTECH & CRÉDIT (BANQUE)</h3>
+        <ul>
+            <li><strong>Wallet :</strong> Portefeuille électronique agréé (partenariat banque locale ou licence CEMAC).
+            </li>
+            <li><strong>Micro-Crédit IA :</strong> Algorithme d'octroi de prêt basé sur l'activité dans l'écosystème.
+                <ul>
+                    <li><em>Exemple : Un utilisateur qui vient au stade chaque semaine (fidèle) et marche 10km/jour
+                            (santé) a un taux de défaut faible. On lui prête 50 000 FCFA.</em></li>
+                </ul>
+            </li>
+            <li><strong>Assurance :</strong> Micro-assurance blessure pour les joueurs amateurs des Arenas (activée par
+                GPS dès l'entrée au stade).</li>
+        </ul>
+
+        <br>
+
+        <h3>LOT N°18 : GAMING & MÉTAVERSE (IMMERSION)</h3>
+        <ul>
+            <li><strong>Numérisation 3D :</strong> Création des jumeaux numériques (Digital Twins) des joueurs de
+                l'Empire League.</li>
+            <li><strong>Fantasy League :</strong> Jeu de management type "Sorare" ou "Mon Petit Gazon" intégré à l'App.
+                Achat/Vente de cartes joueurs NFT.</li>
+            <li><strong>Automated Highlights :</strong> Caméras IA dans les stades (Lot 2) qui détectent les buts,
+                coupent la vidéo, ajoutent le logo Empire, et l'envoient sur le smartphone du joueur amateur en 3
+                minutes pour partage TikTok.</li>
+        </ul>
+
+        <br>
+
+        <h3>LOT N°19 : EDTECH INSTITUTE (FORMATION)</h3>
+        <ul>
+            <li><strong>Plateforme LMS :</strong> Learning Management System propriétaire.</li>
+            <li><strong>Contenu :</strong> Production de "MasterClasses" filmées avec la qualité cinéma du Lot 2.</li>
+            <li><strong>Certification :</strong> Blockchain pour valider l'authenticité des certificats émis (Lutte
+                contre les faux diplômes).</li>
+        </ul>
+
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- BPU FINANCIER -->
+    <div class="section" id="05_BPU.md">
+        <h1>BORDEREAU DES PRIX (EXTRAIT BPU) - NOUVELLES DIMENSIONS</h1>
+
+        <table>
+            <tr>
+                <th>N° Prix</th>
+                <th>Désignation</th>
+                <th>Unité</th>
+                <th>Prix Unitaire Cible</th>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="background-color:#eee;"><strong>LOT 14 - ÉNERGIE</strong></td>
+            </tr>
+            <tr>
+                <td>P14.01</td>
+                <td>Panneau Solaire Monocristallin 400W (Installé)</td>
+                <td>U</td>
+                <td>150 000 FCFA</td>
+            </tr>
+            <tr>
+                <td>P14.02</td>
+                <td>Borne de recharge Moto (2 prises)</td>
+                <td>U</td>
+                <td>500 000 FCFA</td>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="background-color:#eee;"><strong>LOT 15 - BIO-DATA</strong></td>
+            </tr>
+            <tr>
+                <td>P15.01</td>
+                <td>Bracelet "Empire Pulse" (Achat Volumique >10k)</td>
+                <td>U</td>
+                <td>5 000 FCFA</td>
+            </tr>
+            <tr>
+                <td>P15.02</td>
+                <td>Coût Serveur Gestion Données Santé (Par user/an)</td>
+                <td>An</td>
+                <td>500 FCFA</td>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="background-color:#eee;"><strong>LOT 18 - GAMING</strong></td>
+            </tr>
+            <tr>
+                <td>P18.01</td>
+                <td>Scanner 3D Avatar Joueur</td>
+                <td>U</td>
+                <td>25 000 FCFA</td>
+            </tr>
+            <tr>
+                <td>P18.02</td>
+                <td>Génération Highlight Vidéo IA</td>
+                <td>Min</td>
+                <td>100 FCFA</td>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="background-color:#eee;"><strong>LOT 19 - EDTECH</strong></td>
+            </tr>
+            <tr>
+                <td>P19.01</td>
+                <td>Production MasterClass (1h - Qualité Netflix)</td>
+                <td>H</td>
+                <td>5 000 000 FCFA</td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <blockquote style="text-align: center; border: 2px solid #2c3e50; background: none;">
+            <strong>NOTE STRATÉGIQUE :</strong><br>
+            L'investissement initial est lourd (+40% vs modèle classique).<br>
+            Mais le <strong>Lock-in (Enfermement propriétaire)</strong> est absolu. Une fois le citoyen entré pour le
+            sport, il reste pour l'énergie, la santé, et l'argent.
+        </blockquote>
+
+    </div>
+
+</body>
+
+</html>
