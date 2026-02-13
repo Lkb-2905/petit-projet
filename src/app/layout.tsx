@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description: "Plateforme digitale unifiée pour le sport et le divertissement au Cameroun.",
 };
 
+import Providers from "@/app/providers";
+import { AuthProvider } from "@/lib/context/auth-context";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,11 +23,15 @@ export default function RootLayout({
   return (
     <html lang="fr" className="dark">
       <body className={cn(inter.className, "min-h-screen bg-background font-sans antialiased flex flex-col")}>
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <AuthProvider>
+            <Navbar />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </AuthProvider>
+        </Providers>
       </body>
     </html>
   );

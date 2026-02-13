@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+// import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Save, Plus, Trash2, Trophy } from "lucide-react";
 
 // Mock Data Types
@@ -53,7 +53,7 @@ export default function LeagueAdmin() {
                 <Card>
                     <CardHeader>
                         <CardTitle>Saisie des Résultats</CardTitle>
-                        <CardDescription>Mise à jour en temps réel de l'Empire League.</CardDescription>
+                        <CardDescription>Mise à jour en temps réel de l&apos;Empire League.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">

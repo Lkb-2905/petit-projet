@@ -50,7 +50,7 @@ export default function AccessControl() {
         <div className="container py-12 flex flex-col items-center justify-center min-h-[calc(100vh-theme(spacing.16))]">
             <div className="text-center space-y-2 mb-8">
                 <h1 className="text-2xl font-bold">Empire Guard - Point de Contrôle</h1>
-                <p className="text-muted-foreground">Scanner de contrôle d'accès (Lot 7 & 11)</p>
+                <p className="text-muted-foreground">Scanner de contrôle d&apos;accès (Lot 7 & 11)</p>
             </div>
 
             <Card className="w-full max-w-md border-2 shadow-2xl">

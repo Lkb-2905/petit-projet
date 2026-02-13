@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: empire-backend
+    env: python
+    buildCommand: "cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: empire-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: empire-redis
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+
+  - type: web
+    name: empire-frontend
+    env: node
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: empire-backend
+          envVarKey: RENDER_EXTERNAL_URL
+          suffix: /api/v1
+
+databases:
+  - name: empire-db
+    databaseName: empire
+    user: empire_user
+
+services:
+  - type: redis
+    name: empire-redis
+    ipAllowList: [] # Redis 6+ requires explicit IP allow list or empty for internal access only

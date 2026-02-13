@@ -6,7 +6,7 @@ export function Footer() {
                     <div>
                         <h3 className="text-lg font-bold text-primary mb-2">EMPIRE 2076</h3>
                         <p className="text-sm text-muted-foreground">
-                            L'écosystème sport et divertissement de référence.
+                            L&apos;écosystème sport et divertissement de référence.
                             Omniprésence. Excellence. Héritage.
                         </p>
                     </div>
