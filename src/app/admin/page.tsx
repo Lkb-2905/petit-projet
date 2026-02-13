@@ -1,91 +1,55 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { Users, Coins, Activity, TrendingUp } from 'lucide-react';
-import { api } from '@/lib/api/auth';
+import React from 'react';
+import { GodModeHeader } from '@/components/features/admin/GodModeHeader';
+import { KPIWidgets } from '@/components/features/admin/KPIWidgets';
+import { CityMap } from '@/components/features/admin/CityMap';
+import { IntelligenceFeed } from '@/components/features/admin/IntelligenceFeed';
 
-interface Stats {
-    total_users: number;
-    active_users: number;
-    total_funds: number;
-    currency: string;
-}
-
-export default function AdminDashboard() {
-    const [stats, setStats] = useState<Stats | null>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchStats = async () => {
-            try {
-                const response = await api.get('/admin/stats');
-                setStats(response.data);
-            } catch (err) {
-                console.error("Failed to fetch admin stats", err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchStats();
-    }, []);
-
-    if (loading) return <div className="p-8 text-white">Chargement des données impériales...</div>;
-
+export default function AdminPage() {
     return (
-        <div className="p-8 max-w-7xl mx-auto space-y-8">
-            <header>
-                <h1 className="text-3xl font-bold text-white mb-2">Tableau de Bord Impérial</h1>
-                <p className="text-gray-400">Vue d'ensemble de l'Empire en temps réel.</p>
-            </header>
+        <div className="min-h-screen bg-[#050505] text-white overflow-hidden flex flex-col font-sans selection:bg-blue-500/30">
+            {/* 1. Header (Indicateur de Pouvoir) */}
+            <GodModeHeader />
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Total Citizens */}
-                <div className="bg-[#111] border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/50 transition-colors">
-                    <div className="flex justify-between items-start mb-4">
-                        <div className="p-3 rounded-lg bg-blue-500/20 text-blue-500">
-                            <Users size={24} />
-                        </div>
-                        <span className="text-xs font-medium text-green-400 bg-green-400/10 px-2 py-1 rounded-full flex items-center gap-1">
-                            <TrendingUp size={12} /> +12%
-                        </span>
+            <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+                {/* Main Content (God Mode Map & Widgets) */}
+                <div className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
+                    <div className="flex-1 p-4 overflow-y-auto custom-scrollbar space-y-4">
+                        {/* 2. Section Principale : La Vue "God Mode" */}
+                        <section className="relative">
+                            <div className="flex justify-between items-end mb-2 px-2">
+                                <h2 className="text-sm font-bold text-blue-400 tracking-wider flex items-center gap-2">
+                                    <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                                    VUE SATELLITE TACTIQUE
+                                </h2>
+                                <span className="text-[10px] text-gray-500 font-mono">DOUALA SECTOR 4</span>
+                            </div>
+                            <CityMap />
+                        </section>
+
+                        {/* 3. Widgets de Performance */}
+                        <section>
+                            <div className="flex justify-between items-end mb-2 px-2">
+                                <h2 className="text-sm font-bold text-purple-400 tracking-wider">
+                                    MÉTRIQUES "SUMMUM"
+                                </h2>
+                            </div>
+                            <KPIWidgets />
+                        </section>
                     </div>
-                    <div className="space-y-1 relative z-10">
-                        <h3 className="text-gray-400 text-sm font-medium">Citoyens Total</h3>
-                        <p className="text-3xl font-bold text-white">{stats?.total_users.toLocaleString()}</p>
-                    </div>
-                    <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all" />
                 </div>
 
-                {/* Treasury */}
-                <div className="bg-[#111] border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-yellow-500/50 transition-colors">
-                    <div className="flex justify-between items-start mb-4">
-                        <div className="p-3 rounded-lg bg-yellow-500/20 text-yellow-500">
-                            <Coins size={24} />
-                        </div>
-                    </div>
-                    <div className="space-y-1 relative z-10">
-                        <h3 className="text-gray-400 text-sm font-medium">Trésorerie Globale</h3>
-                        <p className="text-3xl font-bold text-white">
-                            {stats?.total_funds.toLocaleString()} <span className="text-lg text-gray-500">{stats?.currency}</span>
-                        </p>
-                    </div>
-                    <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-yellow-500/10 rounded-full blur-2xl group-hover:bg-yellow-500/20 transition-all" />
+                {/* 4. Le Feed d'Intelligence (L'Assistant Stratégique) */}
+                <div className="w-full md:w-96 border-l border-white/5 bg-black/20 backdrop-blur-sm z-20">
+                    <IntelligenceFeed />
                 </div>
+            </div>
 
-                {/* Active Users */}
-                <div className="bg-[#111] border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-purple-500/50 transition-colors">
-                    <div className="flex justify-between items-start mb-4">
-                        <div className="p-3 rounded-lg bg-purple-500/20 text-purple-500">
-                            <Activity size={24} />
-                        </div>
-                    </div>
-                    <div className="space-y-1 relative z-10">
-                        <h3 className="text-gray-400 text-sm font-medium">Citoyens Actifs</h3>
-                        <p className="text-3xl font-bold text-white">{stats?.active_users.toLocaleString()}</p>
-                    </div>
-                    <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all" />
-                </div>
+            {/* Background Ambient Effects */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-[100px]" />
             </div>
         </div>
     );
