@@ -9,7 +9,7 @@ export const KPIWidgets = () => {
                 <div className="flex justify-between items-start mb-4">
                     <div>
                         <h3 className="text-white font-bold flex items-center gap-2">
-                            <Activity className="text-red-500" size={18} loading="lazy" />
+                            <Activity className="text-red-500" size={18} />
                             MODULE BIO-DATA
                         </h3>
                         <span className="text-xs text-gray-500">Santé Globale Citoyens</span>
